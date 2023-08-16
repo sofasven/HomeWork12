@@ -1,19 +1,18 @@
 import UIKit
 
 let someCollention: [Any] = [5.2, 7.4, 10, 8, "Hello", true, "Bye", false, 11]
-print(someCollention)
+for item in someCollention {
+    print(item)
+}
 
 for element in someCollention {
     if element is Int {
         print("Целое число \(element)")
-    }
-    if element is Double {
+    } else if element is Double {
         print("Вещественное число \(element)")
-    }
-    if element is String {
+    } else if element is String {
         print("Строка \(element)")
-    }
-    if element is Bool {
+    } else if element is Bool {
         print("Булевое значение \(element)")
     }
 }
@@ -33,22 +32,15 @@ var total: Double = 0
 for element in dictionary {
     if let someInt = element.value as? Int {
         total += Double(someInt)
-    }
-    if let someValue = element.value as? Double {
+    } else if let someValue = element.value as? Double {
         total += someValue
-    }
-    if element.value is String {
+    } else if element.value is String {
         total += 1
-    }
-    if let boolElement = element.value as? Bool {
-        switch boolElement {
-        case true:
-            total += 2
-        case false:
-            total -= 3
+    } else if let boolElement = element.value as? Bool {
+        boolElement ? +2 : -3
         }
     }
-}
+
 print(total)
 
 total = 0
@@ -56,11 +48,9 @@ total = 0
 for element in dictionary {
     if let someInt = element.value as? Int {
         total += Double(someInt)
-    }
-    if let someValue = element.value as? Double {
+    } else if let someValue = element.value as? Double {
         total += someValue
-    }
-    if let stringValue = element.value as? String {
+    } else if let stringValue = element.value as? String {
         if let convertValue = Double(stringValue) {
             total += convertValue
         }
